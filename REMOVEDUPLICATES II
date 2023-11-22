@@ -1,0 +1,21 @@
+Do this problem removeDuplicatessorted first for better understanding.
+=>we know that atmost 2 dupliactes can be accepeted then we need to compare elements with one pos diff.
+=>so we will start from at pos2 and we use two pointers i=j=2.
+=>check nums[i] with nums[i-2] if there both are not equal then we do nums[i]=nums[j] and i+=1 and j+=1
+=>if nums[i]==nums[i-2] then we should change the i th pos from nums array so we stop i and increment j+=1 and check with nums[i].
+=>and by using j we check each element whether it is equal or not with nums[i-2] if it is not then we can assign nums[j] to our nums[i]
+
+Complexity
+Time complexity:O(n)
+Space complexity:
+Code
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        i=2
+        j=2
+        while j<len(nums):
+            if nums[j]!=nums[i-2]:
+                nums[i]=nums[j]
+                i+=1
+            j+=1 
+        return i
